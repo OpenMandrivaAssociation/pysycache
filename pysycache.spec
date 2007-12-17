@@ -19,7 +19,6 @@ License:	GPL
 BuildArch:	noarch
 Requires:	pygame %{name}-language = %{version}
 Buildrequires:	ImageMagick
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 PySyCache is an educational software for the young children (4-7 years old) 
