@@ -105,14 +105,15 @@ python %{_gamesdatadir}/pysycache/pysycache.py \$@
 EOF
 chmod +x %{buildroot}%{_gamesbindir}/%{name}
 
-install -d %{buildroot}%{_menudir}
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" \
-		icon=%{name}.png \
-		needs="x11" \
-		section="More Applications/Games/Toys" \
-		title="PySyCache" \
-		longtitle="%{Summary}"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{_gamesbindir}/%{name}
+Icon=%{name}
+Categories=Amusement;
+Name=PySyCache
+Comment=%{Summary}
 EOF
 
 install -d %{buildroot}{%{_iconsdir},%{_miconsdir},%{_liconsdir}}
@@ -140,7 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_gamesdatadir}/%{name}
 %dir %{_gamesdatadir}/%{name}/themes-move
 %exclude %{_gamesdatadir}/%{name}/themes-move/*
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
