@@ -197,11 +197,15 @@ convert -size 16x16 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdi
 convert -size 32x32 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 convert -size 48x48 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean
 rm -rf %{buildroot}
