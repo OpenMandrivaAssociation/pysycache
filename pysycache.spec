@@ -22,7 +22,7 @@ Summary:	Educational point-and-click software for young children
 License:	GPLv2+
 BuildArch:	noarch
 Requires:	pygame %{name}-language = %{version}
-Buildrequires:	ImageMagick
+Buildrequires:	imagemagick
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
