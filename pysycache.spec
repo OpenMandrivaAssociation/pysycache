@@ -122,7 +122,7 @@ Group:		Education
 Lithuanian language pack for %{name}.
 
 %package	lang-nl
-Summary:        Dutch language pack for %{name}
+Summary:	Dutch language pack for %{name}
 Provides:	%{name}-language = %{version}-%{release}
 Requires:	%{name} = %{version}
 Group:		Education
@@ -187,7 +187,7 @@ cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 Type=Application
 Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
-Categories=Amusement;
+Categories=X-MandrivaLinux-MoreApplications-Education;Education;
 Name=PySyCache
 Comment=%{Summary}
 EOF
