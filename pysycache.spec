@@ -187,9 +187,9 @@ cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 Type=Application
 Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
-Categories=X-MandrivaLinux-MoreApplications-Education;Education;
+Categories=Education;
 Name=PySyCache
-Comment=%{Summary}
+Comment=%{summary}
 EOF
 
 install -d %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
