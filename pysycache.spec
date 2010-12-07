@@ -1,6 +1,6 @@
 Name:		pysycache
 Version:	3.1b
-Release:	%mkrel 6
+Release:	%mkrel 7
 Group:		Education
 Source0:	http://download.tuxfamily.org/py4childs/pysycache/v3.1/%{name}-src-%{version}.zip
 Source1:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-gpl-ar-%{version}.zip
