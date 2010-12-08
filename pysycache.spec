@@ -216,7 +216,11 @@ rm -rf %{buildroot}
 %defattr(644,root,root,755)
 %{_gamesdatadir}/%{name}
 %dir %{_gamesdatadir}/%{name}/themes-move
-%exclude %{_gamesdatadir}/%{name}/themes-move/*
+%{_gamesdatadir}/%{name}/themes-move/animals
+%{_gamesdatadir}/%{name}/themes-move/food
+%{_gamesdatadir}/%{name}/themes-move/plants
+%{_gamesdatadir}/%{name}/themes-move/sky
+%{_gamesdatadir}/%{name}/themes-move/sports
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 
