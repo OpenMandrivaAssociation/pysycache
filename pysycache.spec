@@ -1,6 +1,6 @@
 Name:		pysycache
 Version:	3.1b
-Release:	%mkrel 7
+Release:	8
 Group:		Education
 Source0:	http://download.tuxfamily.org/py4childs/pysycache/v3.1/%{name}-src-%{version}.zip
 Source1:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-gpl-ar-%{version}.zip
@@ -22,8 +22,7 @@ Summary:	Educational point-and-click software for young children
 License:	GPLv2+
 BuildArch:	noarch
 Requires:	pygame %{name}-language = %{version}
-Buildrequires:	imagemagick
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	imagemagick
 
 %description
 PySyCache is an educational software for the young children (4-7 years old) 
@@ -168,8 +167,6 @@ popd
 %build
 
 %install
-rm -rf %{buildroot}
-
 install -d %{buildroot}%{_gamesdatadir}
 cp -r pysycache-src/pysycache %{buildroot}%{_gamesdatadir}
 
@@ -197,30 +194,18 @@ convert -size 16x16 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdi
 convert -size 32x32 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 convert -size 48x48 pysycache-src/pysycache/pysycache.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files
 %defattr(755,root,root,755)
 %{_gamesbindir}/%{name}
 %defattr(644,root,root,755)
 %{_gamesdatadir}/%{name}
-%dir %{_gamesdatadir}/%{name}/themes-move
-%{_gamesdatadir}/%{name}/themes-move/animals
-%{_gamesdatadir}/%{name}/themes-move/food
-%{_gamesdatadir}/%{name}/themes-move/plants
-%{_gamesdatadir}/%{name}/themes-move/sky
-%{_gamesdatadir}/%{name}/themes-move/sports
+#%{_gamesdatadir}/%{name}/themes-move/animals
+#%{_gamesdatadir}/%{name}/themes-move/food
+#%{_gamesdatadir}/%{name}/themes-move/plants
+#%{_gamesdatadir}/%{name}/themes-move/sky
+#%{_gamesdatadir}/%{name}/themes-move/sports
+%exclude %{_gamesdatadir}/%{name}/themes-move/alphabet*
+%exclude %{_gamesdatadir}/%{name}/themes-move/number*
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 
@@ -293,4 +278,68 @@ rm -rf %{buildroot}
 %defattr(644,root,root,755)
 %{_gamesdatadir}/%{name}/themes-move/alphabet-ru
 %{_gamesdatadir}/%{name}/themes-move/number-ru
+
+
+
+%changelog
+* Wed Dec 08 2010 Funda Wang <fwang@mandriva.org> 3.1b-7mdv2011.0
++ Revision: 615362
+- update file list
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - the mass rebuild of 2010.1 packages
+
+* Sat May 01 2010 Funda Wang <fwang@mandriva.org> 3.1b-6mdv2010.1
++ Revision: 541482
+- fix desktop file
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 3.1b-6mdv2010.0
++ Revision: 430822
+- rebuild
+
+  + Rémy Clouard <shikamaru@mandriva.org>
+    - release++
+    - fix Category for pysycache
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - lowercase ImageMagick
+
+* Fri Aug 01 2008 Thierry Vignaud <tv@mandriva.org> 3.1b-4mdv2009.0
++ Revision: 259487
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 3.1b-3mdv2009.0
++ Revision: 247330
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Sat Jan 12 2008 Adam Williamson <awilliamson@mandriva.org> 3.1b-1mdv2008.1
++ Revision: 149665
+- clean spec
+- fd.o icons
+- new license policy
+- update language packs
+- new release 3.1b
+
+* Fri Jan 04 2008 Thierry Vignaud <tv@mandriva.org> 2.0-3mdv2008.1
++ Revision: 145321
+- auto-convert XDG menu entry
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+
+* Thu Jan 18 2007 Lenny Cartier <lenny@mandriva.com> 2.0-3mdv2007.0
++ Revision: 110114
+- Adjust buildrequires
+- Import pysycache
+
+* Sat May 06 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 2.0-2mdk
+- make language packs require the main package
+
+* Sat May 06 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 2.0-1mdk
+- initial release
 
