@@ -17,7 +17,7 @@ Source11:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-g
 Source12:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-gpl-pl-%{version}.zip
 Source13:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-gpl-pt-%{version}.zip
 Source14:	http://download.tuxfamily.org/py4childs/themes/themes-move/pack-lang-gpl-ru-%{version}.zip
-URL:		http://www.pysycache.org/
+URL:		https://www.pysycache.org/
 Summary:	Educational point-and-click software for young children
 License:	GPLv2+
 BuildArch:	noarch
